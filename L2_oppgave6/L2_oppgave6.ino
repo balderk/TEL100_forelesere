@@ -1,4 +1,3 @@
-
 // Oppgave 6
 void setup() {
   Serial.begin(115200);
@@ -14,4 +13,12 @@ void print_word(int n, String Word){
     Serial.println(Word);
   }
 }
+
+
+
+
+
+
+
+
 
