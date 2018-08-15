@@ -7,7 +7,7 @@
 
 #define PED_BLINKS 20    // How many blinks before green light goes to red
 
-#define SWITCH_TIME 1000  // Time on light switch
+#define SWITCH_TIME 2000  // Time on light switch
 
 int carPin[] = {3, 4, 5}; // red, yellow, green
 int pedPin[] = {6, 7, 8}; // red, green, and waiting light (pedestrian)
