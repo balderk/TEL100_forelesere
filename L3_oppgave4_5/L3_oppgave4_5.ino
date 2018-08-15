@@ -1,5 +1,6 @@
-// Oppgave 4
+// Oppgave 4_5
 #define NUM_LEDS 6
+#define MAXVAL 50
 const int PWMLEDS[] = {3, 5, 6, 9, 10, 11};
 
 int led[NUM_LEDS];
@@ -22,11 +23,11 @@ void loop() {
   for (int i = 0; i < NUM_LEDS; i++) {
     uint8_t state = 0;
     if (val > (i + 1)*frac) {
-      state = 255;
+      state = MAXVAL;
     } else if (val < i * frac) {
       state = 0;
     } else {
-      state = map(val, i * frac, (i + 1) * frac, 0, 255);
+      state = map(val, i * frac, (i + 1) * frac, 0, MAXVAL);
     }
     Serial.print(i);
     Serial.print(",\t");
