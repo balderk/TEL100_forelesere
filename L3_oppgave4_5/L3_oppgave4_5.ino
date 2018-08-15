@@ -15,9 +15,10 @@ void setup() {
 
 void loop() {
   int val = analogRead(potPin);
-  //int n_leds = map(val, 0, 1023, 0, NUM_LEDS);
   int frac = 1023 / NUM_LEDS;
   Serial.print("\n(i, val): ");
+  Serial.print(val);
+  Serial.print(",\t");
   for (int i = 0; i < NUM_LEDS; i++) {
     uint8_t state = 0;
     if (val > (i + 1)*frac) {
@@ -33,6 +34,5 @@ void loop() {
     Serial.print(",\t");
     analogWrite(led[i], state);
   }
-  delay(10);
 }
 
