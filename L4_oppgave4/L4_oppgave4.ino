@@ -12,12 +12,12 @@ const int ledpins[NUM_LEDS] = {8, 9, 10};
 int current_index = 0;
 int current_LED;
 void setup() {
-  
+
   for (int i = 0; i < NUM_LEDS; i++) {
     int pin = ledpins[i];
     pinMode(pin, OUTPUT);
   }
-  
+
   pinMode(BUTTPIN, INPUT);
 
   current_LED = ledpins[current_index];
@@ -35,7 +35,7 @@ void loop() {
 
     current_LED = ledpins[current_index];
     digitalWrite(current_LED, HIGH);
+
+    delay(150);
   }
-  
-  delay(150);
 }

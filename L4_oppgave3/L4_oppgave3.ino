@@ -6,7 +6,6 @@
 */
 #define BUTTPIN 4
 
-#define NUM_LEDS 3
 const int ledpin = 8;
 
 bool light_status = HIGH;
@@ -23,7 +22,7 @@ void loop() {
   if (readval == 1) {
     light_status = !light_status;
     digitalWrite(ledpin, light_status);
-  }
 
-  delay(150);
+    delay(150);
+  }
 }
