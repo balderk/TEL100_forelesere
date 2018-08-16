@@ -1,5 +1,17 @@
 /*
    Simulates traffic light with cars and pedestrians
+
+   Car:
+    Connect red LED to pin 3
+    yellow LED to pin 4
+    green LED to pin 5
+
+  Pedestrian:
+    Connect red LED to pin 6
+    green LED to pin 7
+
+    yellow LED to pin 8
+    button to pin 2
 */
 
 #define WAIT_PED 5000    // Defines minimum crossing time for pedestrian
@@ -9,15 +21,15 @@
 
 #define SWITCH_TIME 2000  // Time on light switch
 
-int carPin[] = {3, 4, 5}; // red, yellow, green
-int pedPin[] = {6, 7, 8}; // red, green, and waiting light (pedestrian)
-int btnPin = 2;           // button pin
+int carPin[] = {3, 4, 5};
+int pedPin[] = {6, 7, 8};
+int btnPin = 2;   
 
 
-int carGreen = 1;         // True if cars have green light
-int pedGreen = 0;         // True if pedestrians have green light
+int carGreen = 1;
+int pedGreen = 0;     
 
-volatile int pedWaiting = 0;       // True if a pedestrian has pushed the button
+volatile int pedWaiting = 0;   
 
 void setup() {
   pinMode(btnPin, INPUT);
@@ -27,7 +39,7 @@ void setup() {
     pinMode(pedPin[i], OUTPUT);
   }
 
-  digitalWrite(carPin[2], HIGH);  // Starts with green light for car, and red for pedestrians
+  digitalWrite(carPin[2], HIGH);  
   digitalWrite(pedPin[0], HIGH);
 
   // Attach interrupt to button when pressed
@@ -77,14 +89,14 @@ void switchPedLight() {
   digitalWrite(pedPin[1], LOW);
   digitalWrite(pedPin[0], HIGH);
 
-  // Light is red, and pedestrians can push the button
+
   pedWaiting = 0;
   delay(SWITCH_TIME);
 }
 
 void togglePed() {
-  if (!pedWaiting) {                // Toggle only if pedestrian crossing is complete
-    digitalWrite(pedPin[2], HIGH);  // Turn on waiting light
+  if (!pedWaiting) {  
+    digitalWrite(pedPin[2], HIGH);  
     pedWaiting = 1;
   }
 }
