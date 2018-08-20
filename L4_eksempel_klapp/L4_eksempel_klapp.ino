@@ -19,7 +19,7 @@ void setup() {
 void loop() {
   static int ledVal = 0;
   int sensorVal = analogRead(sensorPin);
-  Serial.print("0, 1023, ");
+  Serial.print("0, 1023, \n");
   Serial.print(", ");
   Serial.println(sensorVal);
   if(sensorVal > triggerval && (millis()-lastTime)>timeLim){
